@@ -1,5 +1,9 @@
 package org.mps2022.factorial;
 
+/**
+ * Class providing a method that computes the factorial of an positive integer number
+ * @author Cristian Domenico Dramisino
+ */
 public class Factorial {
 
     public int compute(int numberToCompute) {

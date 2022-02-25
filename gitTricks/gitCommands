@@ -1,0 +1,4 @@
+git status -> see the local status, updates not uploaded
+git add . -> add all new elements and updates to remote repository
+git commit -> add a comment to the new updates
+git log -> see activities done on the repository

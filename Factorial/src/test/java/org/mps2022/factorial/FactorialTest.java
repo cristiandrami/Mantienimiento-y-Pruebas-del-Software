@@ -2,6 +2,11 @@ package org.mps2022.factorial;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+
+import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,6 +29,24 @@ class FactorialTest {
         factorial= new Factorial();
 
     }
+
+
+
+    //this is the annotation I didn't know before reading the documentation
+    @ParameterizedTest
+    @ValueSource(ints = {2, 3, 5})
+    public void shouldComputeOfTwoThreeFiveHasToBeMoreThan1(int value){
+        assertTrue(factorial.compute(value)>1);
+    }
+
+    //this is the assertion I didn't know before reading the documentation
+    @ParameterizedTest
+    @ValueSource(ints = {2, 3, 5, 10 })
+    public void shouldComputeOfTwoThreeFiveTenTwentyIsExecutedInLessThan100Milliseconds(int value) {
+        assertTimeout(Duration.ofMillis(100), () -> factorial.compute(value));
+    }
+
+
     @Test
     public void shouldComputeReturnOneIfTheNumberIsZero() {
         int expectedValue = 1;
